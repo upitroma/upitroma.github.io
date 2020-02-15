@@ -5,14 +5,14 @@ var canvas, ctx, center_x, center_y, radius, bars,
 bars = 200;
 bar_width = 2;
  
-function initPage(){
+function initPage(input){
     
     audio = new Audio();
     audio.crossOrigin = 'anonymous';//???
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
     
-    audio.src = "/home/upitroma/Desktop/GameTestAudio/258437_Sound_of_Infinity.wav"; // the source path
+    audio.src = URL.createObjectURL(this.files[0]); // the source path
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
