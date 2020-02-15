@@ -1,5 +1,6 @@
 //https://codepen.io/nfj525/pen/rVBaab
 
+//TODO: normalize by volume
 //TODO: group spectrum bands exponentially (use unity for refrence)
 //TODO: get spectrum data 2 seconds in advance
 
@@ -85,10 +86,13 @@ window.onload = function() {
         //black out canvas
         ctx.fillStyle = "#000";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+        
   
         for (var i = 0; i < bufferLength; i++) {
 
-          barHeight = dataArray[i];
+          //barHeight = 50*((dataArray[i]/255)*(dataArray[i]/255))/audio.volume;
+          barHeight = 1 * Math.pow(10.0, dataArray[i] / 20.0)
           
           //set colors
           var r = barHeight + (25 * (i/bufferLength));
