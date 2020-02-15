@@ -2,8 +2,20 @@
 <html>
 <header><title>I did a thing</title></header>
 <body>
-I'm still learning html, bare with me.
+ <p>I'm still learning html, bare with me.</p>
+ <input type="file" id="input"/>
+ <audio id="sound" controls></audio>
+ <script>
+  input.onchange = function(e){
+   var sound = document.getElementById('sound');
+   sound.src = URL.createObjectURL(this.files[0]);
+   // not really needed in this exact case, but since it is really important in other cases,
+   // don't forget to revoke the blobURI when you don't need it
+   sound.onend = function(e) {
+     URL.revokeObjectURL(this.src);
+   }
+  }
+ </script>
 
 </body>
-<input type="file" id="file" name="file" multiple>
 </html>
