@@ -4,6 +4,9 @@ var canvas, ctx, center_x, center_y, radius, bars,
  
 bars = 200;
 bar_width = 2;
+
+inputElement=document.getElementById("input");
+inputElement.addEventListener("change", initPage, false);
  
 function initPage(){
     
@@ -11,8 +14,10 @@ function initPage(){
     audio.crossOrigin = 'anonymous';//???
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
+
     
-    audio.src = document.getElementById('input').files[0]; // the source path
+    
+    audio.src = this.files[0]; // the source path
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
