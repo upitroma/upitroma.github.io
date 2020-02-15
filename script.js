@@ -1,5 +1,35 @@
 //https://codepen.io/nfj525/pen/rVBaab
+
+//TODO: group spectrum bands exponentially (use unity for refrence)
+//TODO: get spectrum data 2 seconds in advance
+
+//TODO: if (band>threshold){ spawnlaser() }
+//TODO: laserMovement
+//TODO: import laserSpawnAlgorithm
+//TODO: mouse input rotate player
+//TODO: laser collision
+//TODO: difficulty slider/setting
+//TODO: scoring
+
+//TODO: sort/seporate code into diffrent files
+//TODO: add some logos and credits
+
+//TODO: hide the lavender easter egg somehow
+//TODO: detect the lavender easter egg somehow
+
+//TODO: user login/password
+//TODO: rank user by score
+
+
+
+
+
+
+
+
 window.onload = function() {
+
+    //refrence html
     var file = document.getElementById("thefile");
     var audio = document.getElementById("audio");
     
@@ -57,12 +87,15 @@ window.onload = function() {
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
   
         for (var i = 0; i < bufferLength; i++) {
+
           barHeight = dataArray[i];
           
+          //set colors
           var r = barHeight + (25 * (i/bufferLength));
           var g = 250 * (i/bufferLength);
           var b = 50;
   
+          //draw rectangles
           ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
           ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
   
