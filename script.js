@@ -5,14 +5,14 @@ var canvas, ctx, center_x, center_y, radius, bars,
 bars = 200;
 bar_width = 2;
  
-function initPage(input){
+function initPage(){
     
     audio = new Audio();
     audio.crossOrigin = 'anonymous';//???
     context = new (window.AudioContext || window.webkitAudioContext)();
     analyser = context.createAnalyser();
     
-    audio.src = URL.createObjectURL(this.files[0]); // the source path
+    audio.src = document.getElementById('input').files[0]; // the source path
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
