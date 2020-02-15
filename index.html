@@ -1,21 +1,20 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Visualizer</title>
  
-<html>
-<header><title>I did a thing</title></header>
+    <script type="text/javascript" src="script.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            overflow: hidden;
+        }
+    </style>
+</head>
 <body>
- <p>I'm still learning html, bare with me.</p>
- <input type="file" id="input"/>
- <audio id="sound" controls></audio>
- <script>
-  input.onchange = function(e){
-   var sound = document.getElementById('sound');
-   sound.src = URL.createObjectURL(this.files[0]);
-   // not really needed in this exact case, but since it is really important in other cases,
-   // don't forget to revoke the blobURI when you don't need it
-   sound.onend = function(e) {
-     URL.revokeObjectURL(this.src);
-   }
-  }
- </script>
-
+    <canvas id="renderer"></canvas>
 </body>
+<button onclick="initPage()"></button>
 </html>
