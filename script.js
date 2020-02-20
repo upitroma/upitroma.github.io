@@ -1,6 +1,9 @@
 //https://codepen.io/nfj525/pen/rVBaab
 
-//TODO: normalize by volume
+
+//FIXME: everytime a new song is selected, the audio gets more compressed.
+//This is resolved after a refresh
+
 //TODO: group spectrum bands exponentially (use unity for refrence)
 //TODO: get spectrum data 2 seconds in advance
 
@@ -20,9 +23,6 @@
 
 //TODO: user login/password
 //TODO: rank user by score
-
-
-
 
 
 
@@ -91,8 +91,8 @@ window.onload = function() {
   
         for (var i = 0; i < bufferLength; i++) {
 
-          //barHeight = 50*((dataArray[i]/255)*(dataArray[i]/255))/audio.volume;
-          barHeight = 1 * Math.pow(10.0, dataArray[i] / 20.0)
+          barHeight = 300*(dataArray[i]/255)
+          
           
           //set colors
           var r = barHeight + (25 * (i/bufferLength));
